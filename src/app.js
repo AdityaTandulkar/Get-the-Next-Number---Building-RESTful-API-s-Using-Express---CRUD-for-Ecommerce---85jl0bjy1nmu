@@ -9,21 +9,8 @@ app.use(express.json());
 // Return the response as {message : , status: }
 
 
-app.get("/api/get-next-num", (req, res)=>{
-    const {num} = req.body;
-
-    if(num && typeof num === "number"){
-        res.status(200).json({
-            "message": num+1,
-            "status": "success"
-        });
-    }
-    else{
-        res.status(400).json({
-            "message": "error",
-            "status": "failure"
-        })
-    }
+app.get('/api/get-next-num', (req, res) => {
+    res.status(200).json({ "message": req.body.num + 1, "status": "success" })
 })
 
 module.exports = app;
